@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/toys/toy-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>All Finch Toys</h1>
+  <img src="{% static 'images/birdtoy1.jpg' %}" alt="A bird with a pinwheel" />
+  <img src="{% static 'images/birdtoy2.png' %}" alt="A bird with a ball of yarn" />
+  <img src="{% static 'images/birdtoy3.png' %}" alt="A bird with a basketball" />
+  <img src="{% static 'images/birdtoy4.png' %}" alt="A bird with a shuffleboard" />
+</section>
+
+<section class="card-container">
+  {% for toy in toy_list %}
+  <div class="card" style="border-color: {{ toy.color }}">
+    <div class="card-bg" style="background-color: {{ toy.color }}"></div>
+    <a href="{% url 'toy-detail' toy.id %}">
+      <div class="card-content">
+        <h2>{{ toy.name }}</h2>
+        <p>A {{ toy.color }} toy</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
