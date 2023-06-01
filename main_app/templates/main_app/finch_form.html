@@ -6,9 +6,12 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="page-header">
-  <h1>Add a Cat</h1>
+  {% if cat %}
+    <h1>Edit {{ finch.name }}</h1>
+    {% else %}
+    <h1>Add a Finch</h1>
+  {% endif %}
   <img src="{% static 'images/redhousefinch.jpeg' %}" alt="A red house finch"/>
 </div>
 <form action="" method="post" class="form-container">
@@ -18,5 +21,4 @@
   </table>
   <button type="submit" class="btn submit">Submit!</button>
 </form>
-
 {% endblock %}
