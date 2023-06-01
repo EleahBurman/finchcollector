@@ -96,8 +96,38 @@
         <div class="subsection-content">
           <p>{{finch.name}} has never been fed 😔</p>
         </div>
+        {% endif %}
+	</section> 
+	{% comment %} Add this section below the CLOSING tag (</section>) for <section class="feedings"> {% endcomment %}
+  <section class="toys">
+    <div class="subsection-title">
+      <h2>Toys</h2>
+      <img src="{% static 'images/birdtoy1.jpg' %}" alt="A bird with a pinwheel" />
+      <img src="{% static 'images/birdtoy2.png' %}" alt="A bird with a ball of yarn" />
+      <img src="{% static 'images/birdtoy3.png' %}" alt="A bird with a basketball" />
+    </div>
+    <h3>{{ finch.name }}'s Toys</h3>
+    <div class="subsection-content">
+      {% if finch.toys.count %}
+        {% for toy in finch.toys.all %}
+          <div class="toy-container">
+            <div 
+              class="color-block"
+              style="background-color: {{ toy.color }}"
+            ></div>
+            <a href="{% url 'toy-detail' toy.id %}">
+              <p>A {{ toy.color }} {{ toy.name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-toys">{{finch.name}} doesn't have any toys 😞</p>
       {% endif %}
-    </section>
-  </div>
+    </div>
+    <h3>Available Toys</h3>
+    <div class="subsection-content">
+    </div>
+  </section>
+</div>
   
   {% endblock %}
