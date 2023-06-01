@@ -12,11 +12,11 @@
 {% block content %}
 
 <section class="page-header">
-  <h1>Cat List</h1>
+  <h1>Finch List</h1>
   <img src="{% static 'images/goldfinch.jpeg' %}" alt="A gold finch" />
   <img src="{% static 'images/grassfinch.jpeg' %}" alt="A grass finch" />
   <img src="{% static 'images/housefinch.jpeg' %}" alt="A house finch" />
-  <img src="{% static 'images/redhousefinch.jpef' %}" alt="A red house finch" />
+  <img src="{% static 'images/redhousefinch.jpeg' %}" alt="A red house finch" />
 </section>
 
 <section class="card-container">
@@ -27,6 +27,7 @@
           <img 
             src="{% static 'images/goldfinch.jpeg' %}" 
             alt="A gold finch"
+            class="finch-img"
           >
         </div>
         <h2 class="card-title">{{ finch.name }}</h2>

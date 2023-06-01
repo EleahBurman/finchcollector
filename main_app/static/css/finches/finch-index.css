@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    object-fit: contain;
   }
   
   .card {
@@ -17,6 +18,16 @@
     width: 100%;
   }
   
+  .card-img-container {
+    max-width: 80%;
+    height: 50%;
+  }
+
+  .finch-img {
+    max-width: 80%;
+    height: 50%;
+  }
+
   .usr-img {
     width: 100%;
     border-radius: var(--card-border-radius);
